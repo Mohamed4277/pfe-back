@@ -2,6 +2,8 @@ package com.example.demo.api;
 
 import com.example.demo.domain.Adresses;
 import com.example.demo.service.AdressesService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,8 +31,9 @@ public class AdressesController {
     }
 
     @PostMapping
-    public Adresses saveAdresses(@RequestBody Adresses adresse){
-        return adressesService.saveAdresses(adresse);
+    public ResponseEntity<Adresses> saveAdresses(@RequestBody Adresses adresse){
+        Adresses adressSaved=adressesService.saveAdresses(adresse);
+        return new ResponseEntity<>(adressSaved, HttpStatus.OK);
     }
 
     @PutMapping

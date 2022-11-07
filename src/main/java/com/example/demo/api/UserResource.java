@@ -4,12 +4,17 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.example.demo.domain.Adresses;
+import com.example.demo.domain.PaymentMode;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.User;
+import com.example.demo.service.AdressesService;
+import com.example.demo.service.PaymentModeService;
 import com.example.demo.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,8 +39,11 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
+@Slf4j
 public class UserResource {
     private final UserService userService;
+    private final AdressesService adressesService;
+    private final PaymentModeService paymentModeService;
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers(){
@@ -47,14 +55,13 @@ public class UserResource {
         return ResponseEntity.ok().body(userService.findByUsername(userName));
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/user-by-id/{id}")
     public ResponseEntity<Optional<User>> getUserById(@PathVariable("id")  Long id){
         return ResponseEntity.ok().body(userService.findUserById(id));
     }
 
     @PostMapping("/register")
     public ResponseEntity<User> saveUserRegister(@RequestBody User user){
-        System.out.println("..... saveUserRegister");
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/register").toUriString());
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
@@ -64,6 +71,50 @@ public class UserResource {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
+
+    @PostMapping("/user/{userName}/adress")
+    public ResponseEntity<Adresses>  saveAdressUser(@PathVariable String userName , @RequestBody Adresses adress){
+        Adresses adressSaved=adressesService.saveAdresses(adress);
+        User user=userService.getUser(userName);
+        user.getAdresses().add(adress);
+        userService.saveUser(user);
+        return ResponseEntity.ok().body(adressSaved);}
+
+    @PutMapping("/user/{userName}/adress/{adressId}")
+    public ResponseEntity<Adresses>  updateAdressUser(@PathVariable("userName") String userName ,
+                                                      @PathVariable("adressId") Long id,
+                                                      @RequestBody Adresses adress) {
+        Optional<Adresses> adressFound = adressesService.findById(id);
+        if (adressFound.isPresent()) {
+            Adresses adressSaved = adressesService.saveAdresses(adress);
+            return ResponseEntity.ok().body(adressSaved);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
+
+
+    @PostMapping("/user/{userName}/payment-mode")
+    public ResponseEntity<PaymentMode>  savePaymentModeUser(@PathVariable String userName ,
+                                                            @RequestBody PaymentMode paymentMode){
+        PaymentMode paymentModeSaved=paymentModeService.savePaymentMode(paymentMode);
+        User user=userService.getUser(userName);
+        user.getPaymentMode().add(paymentMode);
+        userService.saveUser(user);
+        return ResponseEntity.ok().body(paymentMode);}
+
+    @PutMapping("/user/{userName}/payment-mode/{paymentModeId}")
+    public ResponseEntity<PaymentMode>  updatePaymentModeUser(@PathVariable("userName") String userName ,
+                                                      @PathVariable("paymentModeId") Long id,
+                                                      @RequestBody PaymentMode paymentMode) {
+        Optional<PaymentMode> paymentModeFound = paymentModeService.findById(id);
+        if (paymentModeFound.isPresent()) {
+            PaymentMode paymentModeSaved = paymentModeService.savePaymentMode(paymentMode);
+            return ResponseEntity.ok().body(paymentModeSaved);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
+
+
 
     @PostMapping("/role/save")
     public ResponseEntity<Role> saveRole(@RequestBody Role role){
