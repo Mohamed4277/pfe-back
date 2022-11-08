@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.Category;
 import com.example.demo.domain.Product;
 
 import java.util.List;
@@ -11,6 +12,6 @@ public interface ProductService {
     Product saveProduct(Product product);
     Product updateProduct(Product product);
     void deleteProduct(Long id);
-
     List<Product> findByNameLike(String name);
+    List<Product> findByCategoryId(Long id);
 }

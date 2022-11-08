@@ -1,8 +1,10 @@
 package com.example.demo.api;
 
+import com.example.demo.domain.Category;
 import com.example.demo.domain.Product;
+import com.example.demo.service.CategoryService;
 import com.example.demo.service.ProductService;
-import org.springframework.data.repository.query.Param;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -10,19 +12,23 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/product")
+@RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
-
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    private final CategoryService categoryService;
 
     @GetMapping("/search")
     public List<Product> findByNameLike(@RequestParam String name ){
         return productService.findByNameLike(name);
     }
 
+    @GetMapping("/category/{productCategory}")
+    public List<Product> findByCategory(@PathVariable("productCategory") String productCategory ){
+        Category category=categoryService.findByCategory(productCategory);
+        //return category.getId();
+        return productService.findByCategoryId(category.getId());
+    }
 
     @GetMapping
     public List<Product> findAllProduct(){

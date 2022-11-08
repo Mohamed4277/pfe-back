@@ -10,6 +10,7 @@ public interface CategoryService {
     Optional<Category> findById(Long id);
     Category saveCategory(Category category);
     Category updateCategory(Category category);
+    Category findByCategory(String category);
     void deleteCategory(Long id);
 
 }

@@ -20,15 +20,21 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    public Category(Long id, String category) {
+        this.id = id;
+        this.category = category;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     private String category;
 
     public Category(String category) {
     }
 
-    /*@OneToMany
-    private List<Product> product;*/
-
-
-
+    @OneToMany
+    private List<Product> products;
 
 }

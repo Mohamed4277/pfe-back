@@ -12,4 +12,5 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product,Long> {
     @Query(value = "SELECT * FROM product WHERE name= ?", nativeQuery = true)
     List<Product> findByNameLike(@Param("name") String name);
+    List<Product> findByCategoryId(Long id);
 }

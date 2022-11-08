@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.Category;
 import com.example.demo.domain.Product;
 import com.example.demo.repo.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -45,4 +46,11 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findByNameLike(String name) {
         return productRepository.findByNameLike(name);
     }
+
+    @Override
+    public List<Product> findByCategoryId(Long id) {
+        return productRepository.findByCategoryId(id);
+    }
+
+
 }
