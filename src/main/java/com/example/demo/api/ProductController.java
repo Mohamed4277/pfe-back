@@ -19,8 +19,8 @@ public class ProductController {
     private final CategoryService categoryService;
 
     @GetMapping("/search")
-    public List<Product> findByNameLike(@RequestParam String name ){
-        return productService.findByNameLike(name);
+    public List<Product> findByNameLike(@RequestParam("name") String name ){
+        return productService.findByNameIgnoreCaseContaining(name);
     }
 
     @GetMapping("/category/{productCategory}")
