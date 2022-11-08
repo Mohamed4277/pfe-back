@@ -8,6 +8,7 @@ import com.example.demo.domain.*;
 import com.example.demo.service.AdressesService;
 import com.example.demo.service.PaymentModeService;
 import com.example.demo.service.UserService;
+import com.example.demo.service.WishListService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -41,6 +42,7 @@ public class UserResource {
     private final UserService userService;
     private final AdressesService adressesService;
     private final PaymentModeService paymentModeService;
+    private final WishListService wishListService;
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers(){
@@ -92,7 +94,24 @@ public class UserResource {
     @PostMapping("/user/{userName}/wish-list")
     public ResponseEntity<WishList>  saveWishListUser(@PathVariable String userName , @RequestBody Product product){
         User user=userService.getUser(userName);
-        user.getWhishList().getProduct().add(product);
+        if (user.getWhishList()!=null)
+        {user.getWhishList().getProduct().add(product);}
+        else {
+            WishList wishListSaved=wishListService.saveWishList(new WishList("My wish list",Arrays.asList(product)));
+            user.setWhishList(wishListSaved);
+        }
+        userService.saveUser(user);
+        return ResponseEntity.ok().body(user.getWhishList());}
+
+    @DeleteMapping("/user/{userName}/wish-list")
+    public ResponseEntity<WishList>  deleteWishListUser(@PathVariable String userName , @RequestBody Product product){
+        User user=userService.getUser(userName);
+        if (user.getWhishList()!=null && user.getWhishList().getProduct().size() > 1)
+        {user.getWhishList().getProduct().remove(product);}
+        else {
+            user.getWhishList().getProduct().remove(product);
+            user.setWhishList(null);
+        }
         userService.saveUser(user);
         return ResponseEntity.ok().body(user.getWhishList());}
 

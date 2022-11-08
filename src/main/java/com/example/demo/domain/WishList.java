@@ -25,6 +25,11 @@ public class WishList {
     private Long id;
     private String name;
 
+    public WishList(String name, List<Product> product) {
+        this.name = name;
+        this.product = product;
+    }
+
     @OneToMany
     private List<Product>  product;
 

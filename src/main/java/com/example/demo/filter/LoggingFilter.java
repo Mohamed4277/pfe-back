@@ -37,16 +37,16 @@ public class LoggingFilter extends OncePerRequestFilter {
         String responseBody = getStringValue(responseWrapper.getContentAsByteArray(),
                 response.getCharacterEncoding());
 
-        if (!request.getRequestURI().equals("/api/login")) {
+      /*  if (!request.getRequestURI().equals("/api/login")) {*/
             log.info(
                 "PROCESSING : METHOD={}; REQUESTURI={}; REQUEST PAYLOAD={}; RESPONSE CODE={}; RESPONSE={}; TIM TAKEN={}; ERROR={}",
                 request.getMethod(), request.getRequestURI(), requestBody, response.getStatus(), responseBody, timeTaken);
-            } else {
+           /*} else {
             log.info(
                     "PROCESSING : METHOD={}; REQUESTURI={}; REQUEST PAYLOAD={}; RESPONSE CODE={}; TIM TAKEN={}; ERROR={}",
                     request.getMethod(), request.getRequestURI(), requestBody.split("&")[0], response.getStatus(), timeTaken);
 
-        }
+        }*/
         responseWrapper.copyBodyToResponse();
     }
 
