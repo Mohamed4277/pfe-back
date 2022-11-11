@@ -62,7 +62,9 @@ public class UserResource {
     @PostMapping("/register")
     public ResponseEntity<User> saveUserRegister(@RequestBody User user){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/register").toUriString());
-        return ResponseEntity.created(uri).body(userService.saveUser(user));
+        User userSaved =userService.saveUser(user);
+        userService.addRoleToUser(userSaved.getUsername(),"ROLE_USER");
+        return ResponseEntity.created(uri).body(userSaved);
     }
 
     @PostMapping("/user/save")

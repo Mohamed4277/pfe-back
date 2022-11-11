@@ -11,7 +11,6 @@ import java.util.List;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.AUTO;
 
-
 @Entity
 @Getter
 @Setter
@@ -26,7 +25,6 @@ public class User {
         this.password = password;
         this.roles = roles;
     }
-
 
     public User(Long id) {
         this.id = id;
@@ -50,9 +48,6 @@ public class User {
         this.zip = zip;
         this.city = city;
     }
-
-
-
 
     private String username;
     private String password;

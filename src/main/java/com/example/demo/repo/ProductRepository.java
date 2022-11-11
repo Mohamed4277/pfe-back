@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
-    @Query(value = "SELECT * FROM product WHERE name like %?%", nativeQuery = true)
+    @Query(value = "SELECT * FROM product WHERE name like %:name% or description like %:name%", nativeQuery = true)
     List<Product> findByNameLike(@Param("name") String name);
     List<Product> findByCategoryId(Long id);
     List<Product> findByNameIgnoreCaseContaining(String name);

@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
        http.authorizeHttpRequests().anyRequest().authenticated();
        http.addFilter(customAuthenticationFilter);
        http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
-       http.addFilterBefore(new LoggingFilter(),CustomAuthenticationFilter.class );
+       //http.addFilterBefore(new LoggingFilter(),CustomAuthenticationFilter.class );
 
     }
 

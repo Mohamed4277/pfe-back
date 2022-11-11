@@ -25,5 +25,6 @@ public class Adresses {
     private String zip;
     private String city;
     private  Boolean isInvoiceAdress;
+    private  Boolean isDeliveryAdress;
 
 }

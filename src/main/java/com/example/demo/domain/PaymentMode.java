@@ -21,5 +21,6 @@ public class PaymentMode {
     private String cardType;
     private String cardNumber;
     private String codeSecret;
+    private Boolean isCreditCardToUse;
 
 }
