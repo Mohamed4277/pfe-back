@@ -1,9 +1,7 @@
 package com.example.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,10 +11,13 @@ import java.util.List;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.AUTO;
 
+
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class User {
     public User(Long id, String name, String username, String password, Collection<Role> roles) {
         this.id = id;
@@ -54,7 +55,6 @@ public class User {
 
 
     private String username;
-    @JsonIgnore
     private String password;
     private String lastName ;
     private String adressPartOne;
