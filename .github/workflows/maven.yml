@@ -1,9 +1,9 @@
-name: Java CI with Maven
+name: CI/CD pfe
 on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,3 +15,16 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: docker login
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
+          USER: ${{ secrets.USER }}
+        run: docker login -u $USER -p $PASSWORD
+      - name: Build the Docker image
+        run: docker build -t 77871417/spring-pfe .
+      - name: Push the Docker image
+        run: docker push 77871417/spring-pfe:latest

@@ -83,6 +83,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>spring-pfe.jar</finalName>
 	</build>
 
 </project>
