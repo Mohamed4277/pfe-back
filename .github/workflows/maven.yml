@@ -1,16 +1,10 @@
 name: Java CI with Maven
-
 on:
   push:
-    branches: [ "update-mapping-orm" ]
-  pull_request:
-    branches: [ "update-mapping-orm" ]
-
+    branches: [ "main" ]
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
