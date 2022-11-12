@@ -1,4 +1,5 @@
-FROM openjdk:11
+FROM maven:3.8.2-jdk-11
 EXPOSE 8080
-ADD target/spring-pfe.jar spring-pfe.jar
-ENTRYPOINT ["java","-jar","/spring-pfe.jar"]
+COPY . .
+RUN mvn clean package
+ENTRYPOINT ["java","-jar","target/spring-pfe.jar"]
