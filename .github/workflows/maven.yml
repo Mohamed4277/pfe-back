@@ -1,4 +1,4 @@
-name: CI/CD pfe
+name: CI/CD pfe MyBookStore
 on:
   push:
     branches: [ "main" ]
