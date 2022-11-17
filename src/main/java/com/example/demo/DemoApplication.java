@@ -26,7 +26,7 @@ public class DemoApplication {
 		return new BCryptPasswordEncoder();
 	}
 
-	@Bean
+	/*@Bean
 	CommandLineRunner run(UserService userService){
 		return  args -> {
 			userService.saveRole(new Role(null, "ROLE_USER"));
@@ -51,6 +51,6 @@ public class DemoApplication {
 			userService.addRoleToUser("mai@mai.fr","ROLE_USER");
 		};
 
-	}
+	}*/
 
 }
