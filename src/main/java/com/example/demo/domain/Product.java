@@ -10,6 +10,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -25,6 +26,9 @@ public class Product {
     private Long id;
     private String name;
     private String description;
+    private String autor;
+    private String edition;
+    private Date date;
     private Double price;
     private String image;
 

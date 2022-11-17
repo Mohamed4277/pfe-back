@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.OrderF;
 import com.example.demo.domain.ProductOrder;
 
 import java.util.List;
@@ -12,5 +13,8 @@ public interface ProductOrderService {
     ProductOrder updateProductOrder(ProductOrder order);
     void deleteProductOrder(Long id);
     Optional<ProductOrder> findByProductOrderId(Long userId);
+
+    List<ProductOrder> findByOrder(OrderF order);
+
 
 }

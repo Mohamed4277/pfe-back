@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.OrderF;
 import com.example.demo.domain.ProductOrder;
 import com.example.demo.repo.ProductOrderRepository;
 import org.springframework.stereotype.Service;
@@ -47,5 +48,10 @@ public class ProductOrderImpl implements ProductOrderService{
     public Optional<ProductOrder> findByProductOrderId(Long userId) {
 
         return productOrderRepository.findById(userId);
+    }
+
+    @Override
+    public List<ProductOrder> findByOrder(OrderF order) {
+        return productOrderRepository.findByOrder(order);
     }
 }

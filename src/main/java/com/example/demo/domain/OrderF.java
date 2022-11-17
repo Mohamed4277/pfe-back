@@ -26,7 +26,5 @@ public class OrderF {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private User user;
-    private String testOrder;
-
 
 }

@@ -5,10 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.demo.domain.*;
-import com.example.demo.service.AdressesService;
-import com.example.demo.service.PaymentModeService;
-import com.example.demo.service.UserService;
-import com.example.demo.service.WishListService;
+import com.example.demo.service.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +40,8 @@ public class UserResource {
     private final AdressesService adressesService;
     private final PaymentModeService paymentModeService;
     private final WishListService wishListService;
+    private final OrderService orderService;
+    private final ProductOrderService productOrderService;
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers(){
@@ -57,6 +56,17 @@ public class UserResource {
     @GetMapping("/user/user-by-id/{id}")
     public ResponseEntity<Optional<User>> getUserById(@PathVariable("id")  Long id){
         return ResponseEntity.ok().body(userService.findUserById(id));
+    }
+
+    @GetMapping("/user/{id}/orders")
+    public ResponseEntity<List<List<ProductOrder>>> getProductOrderByUserId(@PathVariable("id")  Long id){
+
+        List<OrderF> order=orderService.findByUserId(id);
+
+        List<List<ProductOrder>> productOrders=order.stream().map(ord->productOrderService.findByOrder(ord))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(productOrders);
     }
 
     @PostMapping("/register")
@@ -74,7 +84,7 @@ public class UserResource {
     }
 
     @PostMapping("/user/{userName}/adress")
-    public ResponseEntity<Adresses>  saveAdressUser(@PathVariable String userName , @RequestBody Adresses adress){
+    public ResponseEntity<Adresses> saveAdressUser(@PathVariable String userName , @RequestBody Adresses adress){
         Adresses adressSaved=adressesService.saveAdresses(adress);
         User user=userService.getUser(userName);
         user.getAdresses().add(adress);
@@ -117,7 +127,6 @@ public class UserResource {
         userService.saveUser(user);
         return ResponseEntity.ok().body(user.getWhishList());}
 
-
     @PostMapping("/user/{userName}/payment-mode")
     public ResponseEntity<PaymentMode>  savePaymentModeUser(@PathVariable String userName ,
                                                             @RequestBody PaymentMode paymentMode){
@@ -138,8 +147,6 @@ public class UserResource {
         }
         return ResponseEntity.badRequest().body(null);
     }
-
-
 
     @PostMapping("/role/save")
     public ResponseEntity<Role> saveRole(@RequestBody Role role){
