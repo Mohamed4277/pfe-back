@@ -1,9 +1,9 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.repo.AdressesRepository;
+import com.ecommerce.mybookstore.repository.AdressesRepository;
 import com.ecommerce.mybookstore.service.AdressesServiceImpl;
 import com.ecommerce.mybookstore.service.UserService;
-import com.ecommerce.mybookstore.domain.Adresses;
+import com.ecommerce.mybookstore.entity.Adresses;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;

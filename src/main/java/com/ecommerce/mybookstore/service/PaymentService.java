@@ -1,6 +1,6 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.domain.Payment;
+import com.ecommerce.mybookstore.entity.Payment;
 
 import java.util.List;
 import java.util.Optional;

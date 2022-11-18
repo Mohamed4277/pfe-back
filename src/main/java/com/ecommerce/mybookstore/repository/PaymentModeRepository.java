@@ -1,6 +1,6 @@
-package com.ecommerce.mybookstore.repo;
+package com.ecommerce.mybookstore.repository;
 
-import com.ecommerce.mybookstore.domain.PaymentMode;
+import com.ecommerce.mybookstore.entity.PaymentMode;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

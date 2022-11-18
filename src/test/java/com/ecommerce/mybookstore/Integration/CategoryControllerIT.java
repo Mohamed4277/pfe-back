@@ -1,7 +1,7 @@
 package com.ecommerce.mybookstore.Integration;
 
 
-import com.ecommerce.mybookstore.repo.CategoryRepository;
+import com.ecommerce.mybookstore.repository.CategoryRepository;
 import com.ecommerce.mybookstore.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.domain.WishList;
+import com.ecommerce.mybookstore.entity.WishList;
 import com.ecommerce.mybookstore.service.WishListService;
 import org.springframework.web.bind.annotation.*;
 

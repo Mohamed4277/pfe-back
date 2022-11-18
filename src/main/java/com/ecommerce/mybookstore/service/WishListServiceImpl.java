@@ -1,7 +1,7 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.domain.WishList;
-import com.ecommerce.mybookstore.repo.WishListRepository;
+import com.ecommerce.mybookstore.entity.WishList;
+import com.ecommerce.mybookstore.repository.WishListRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

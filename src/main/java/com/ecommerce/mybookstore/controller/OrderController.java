@@ -1,7 +1,7 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.domain.OrderF;
-import com.ecommerce.mybookstore.domain.User;
+import com.ecommerce.mybookstore.entity.OrderF;
+import com.ecommerce.mybookstore.entity.User;
 import com.ecommerce.mybookstore.service.OrderService;
 import com.ecommerce.mybookstore.service.ProductOrderService;
 import com.ecommerce.mybookstore.service.UserService;

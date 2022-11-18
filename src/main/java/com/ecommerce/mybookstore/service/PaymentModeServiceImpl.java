@@ -1,7 +1,7 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.repo.PaymentModeRepository;
-import com.ecommerce.mybookstore.domain.PaymentMode;
+import com.ecommerce.mybookstore.repository.PaymentModeRepository;
+import com.ecommerce.mybookstore.entity.PaymentMode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

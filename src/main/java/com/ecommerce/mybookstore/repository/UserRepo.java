@@ -1,6 +1,6 @@
-package com.ecommerce.mybookstore.repo;
+package com.ecommerce.mybookstore.repository;
 
-import com.ecommerce.mybookstore.domain.User;
+import com.ecommerce.mybookstore.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<User,Long> {

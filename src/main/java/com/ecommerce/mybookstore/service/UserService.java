@@ -1,7 +1,7 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.domain.User;
-import com.ecommerce.mybookstore.domain.Role;
+import com.ecommerce.mybookstore.entity.User;
+import com.ecommerce.mybookstore.entity.Role;
 
 import java.util.List;
 import java.util.Optional;

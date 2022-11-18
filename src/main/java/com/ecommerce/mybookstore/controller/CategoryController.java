@@ -1,6 +1,6 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.domain.Category;
+import com.ecommerce.mybookstore.entity.Category;
 import com.ecommerce.mybookstore.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
 

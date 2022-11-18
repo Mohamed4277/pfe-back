@@ -1,6 +1,6 @@
-package com.ecommerce.mybookstore.repo;
+package com.ecommerce.mybookstore.repository;
 
-import com.ecommerce.mybookstore.domain.Product;
+import com.ecommerce.mybookstore.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

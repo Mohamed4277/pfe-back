@@ -1,7 +1,7 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.domain.Category;
-import com.ecommerce.mybookstore.repo.CategoryRepository;
+import com.ecommerce.mybookstore.entity.Category;
+import com.ecommerce.mybookstore.repository.CategoryRepository;
 import com.ecommerce.mybookstore.service.CategoryServiceImpl;
 import com.ecommerce.mybookstore.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;

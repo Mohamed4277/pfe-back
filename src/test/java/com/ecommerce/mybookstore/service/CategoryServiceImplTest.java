@@ -1,7 +1,7 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.domain.Category;
-import com.ecommerce.mybookstore.repo.CategoryRepository;
+import com.ecommerce.mybookstore.entity.Category;
+import com.ecommerce.mybookstore.repository.CategoryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

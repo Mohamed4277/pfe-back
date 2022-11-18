@@ -1,7 +1,7 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.domain.Category;
-import com.ecommerce.mybookstore.domain.Product;
+import com.ecommerce.mybookstore.entity.Category;
+import com.ecommerce.mybookstore.entity.Product;
 import com.ecommerce.mybookstore.service.CategoryService;
 import com.ecommerce.mybookstore.service.ProductService;
 import lombok.RequiredArgsConstructor;

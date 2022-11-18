@@ -1,11 +1,10 @@
-package com.ecommerce.mybookstore.domain;
+package com.ecommerce.mybookstore.entity;
 
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Getter

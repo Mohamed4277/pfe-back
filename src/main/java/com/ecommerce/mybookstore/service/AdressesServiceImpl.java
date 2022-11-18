@@ -1,7 +1,7 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.repo.AdressesRepository;
-import com.ecommerce.mybookstore.domain.Adresses;
+import com.ecommerce.mybookstore.repository.AdressesRepository;
+import com.ecommerce.mybookstore.entity.Adresses;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

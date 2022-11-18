@@ -1,6 +1,6 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.domain.Payment;
+import com.ecommerce.mybookstore.entity.Payment;
 import com.ecommerce.mybookstore.service.PaymentService;
 import org.springframework.web.bind.annotation.*;
 

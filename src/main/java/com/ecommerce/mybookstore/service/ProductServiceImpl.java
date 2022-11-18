@@ -1,7 +1,7 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.domain.Product;
-import com.ecommerce.mybookstore.repo.ProductRepository;
+import com.ecommerce.mybookstore.entity.Product;
+import com.ecommerce.mybookstore.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

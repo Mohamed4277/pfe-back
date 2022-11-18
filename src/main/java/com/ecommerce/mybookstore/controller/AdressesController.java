@@ -1,6 +1,6 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
-import com.ecommerce.mybookstore.domain.Adresses;
+import com.ecommerce.mybookstore.entity.Adresses;
 import com.ecommerce.mybookstore.service.AdressesService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

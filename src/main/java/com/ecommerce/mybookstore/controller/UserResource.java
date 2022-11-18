@@ -1,10 +1,10 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.ecommerce.mybookstore.domain.*;
+import com.ecommerce.mybookstore.entity.*;
 import com.ecommerce.mybookstore.service.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;

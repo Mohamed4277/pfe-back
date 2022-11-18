@@ -1,9 +1,9 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.repo.RoleRepo;
-import com.ecommerce.mybookstore.domain.Role;
-import com.ecommerce.mybookstore.domain.User;
-import com.ecommerce.mybookstore.repo.UserRepo;
+import com.ecommerce.mybookstore.repository.RoleRepo;
+import com.ecommerce.mybookstore.entity.Role;
+import com.ecommerce.mybookstore.entity.User;
+import com.ecommerce.mybookstore.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

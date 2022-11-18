@@ -1,6 +1,6 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.domain.Category;
+import com.ecommerce.mybookstore.entity.Category;
 
 import java.util.List;
 import java.util.Optional;

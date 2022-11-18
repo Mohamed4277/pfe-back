@@ -1,4 +1,4 @@
-package com.ecommerce.mybookstore.domain;
+package com.ecommerce.mybookstore.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

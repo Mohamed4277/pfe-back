@@ -1,6 +1,6 @@
 package com.ecommerce.mybookstore.service;
 
-import com.ecommerce.mybookstore.domain.Adresses;
+import com.ecommerce.mybookstore.entity.Adresses;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package com.ecommerce.mybookstore.api;
+package com.ecommerce.mybookstore.controller;
 
 
-import com.ecommerce.mybookstore.domain.User;
+import com.ecommerce.mybookstore.entity.User;
 import com.ecommerce.mybookstore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;

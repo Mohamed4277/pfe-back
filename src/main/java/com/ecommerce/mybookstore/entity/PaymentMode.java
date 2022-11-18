@@ -1,4 +1,4 @@
-package com.ecommerce.mybookstore.domain;
+package com.ecommerce.mybookstore.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
