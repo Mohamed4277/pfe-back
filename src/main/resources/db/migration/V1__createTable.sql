@@ -99,7 +99,7 @@ CREATE TABLE `product` (
                            `id` bigint NOT NULL AUTO_INCREMENT,
                            `autor` varchar(255) DEFAULT NULL,
                            `date` datetime DEFAULT NULL,
-                           `description` varchar(255) DEFAULT NULL,
+                           `description` LONGTEXT DEFAULT NULL,
                            `edition` varchar(255) DEFAULT NULL,
                            `image` varchar(255) DEFAULT NULL,
                            `name` varchar(255) DEFAULT NULL,
