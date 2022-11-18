@@ -19,6 +19,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,7 @@ class CategoryControllerTest
         String url="/api/category";
 
         mockMvc.perform(get(url)).andExpect(status().isOk());
+
 
 
     }
