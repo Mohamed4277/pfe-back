@@ -31,9 +31,9 @@ class CategoryControllerTest
     @Autowired
     private ObjectMapper objectMapper;
 
+
     @MockBean
     private CategoryRepository categoryRepository;
-
     @MockBean
     private CategoryServiceImpl categoryService;
 
@@ -45,7 +45,6 @@ class CategoryControllerTest
 
     @MockBean
     private UserService userService;
-
 
     @Test
     @WithMockUser(value = "spring")

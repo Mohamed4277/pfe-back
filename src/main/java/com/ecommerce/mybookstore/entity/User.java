@@ -1,11 +1,13 @@
 package com.ecommerce.mybookstore.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import static javax.persistence.GenerationType.AUTO;
 
@@ -32,6 +34,10 @@ public class User {
     @GeneratedValue(strategy = AUTO)
     private Long id;
     private String name;
+
+    @Column(name = "uuid")
+    @Type(type = "uuid-char")
+    private UUID uuid = UUID.randomUUID();
 
     public User(Long id, String name, String username, String password,
                 String lastName, String adressPartOne, String adressPartTwo,

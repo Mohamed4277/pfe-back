@@ -5,7 +5,6 @@ create table hibernate_sequence(
 
 INSERT INTO hibernate_sequence (next_val) VALUES (1);
 
-
 DROP TABLE IF EXISTS `adresses`;
 CREATE TABLE `adresses` (
                             `id` bigint NOT NULL AUTO_INCREMENT,
@@ -21,17 +20,12 @@ CREATE TABLE `adresses` (
                             PRIMARY KEY (`id`)
 ) ;
 
-
-
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
                             `id` bigint NOT NULL AUTO_INCREMENT,
                             `category` varchar(255) DEFAULT NULL,
                             PRIMARY KEY (`id`)
 ) ;
-
-
-
 
 DROP TABLE IF EXISTS `category_products`;
 CREATE TABLE `category_products` (
@@ -41,20 +35,11 @@ CREATE TABLE `category_products` (
                                      KEY `FKqwkr0l0xbluhhkm7s0c1tg8en` (`category_id`)
 ) ;
 
-
-
-
-
-
-
 DROP TABLE IF EXISTS `hibernate_sequence`;
 
 CREATE TABLE `hibernate_sequence` (
     `next_val` bigint DEFAULT NULL
 ) ;
-
-
-
 
 DROP TABLE IF EXISTS `orderf`;
 CREATE TABLE `orderf` (
@@ -63,9 +48,6 @@ CREATE TABLE `orderf` (
                           PRIMARY KEY (`id`),
                           KEY `FKyag0scwqv0n21eapvv5nmg42` (`user_id`)
 ) ;
-
-
-
 
 DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
@@ -76,9 +58,6 @@ CREATE TABLE `payment` (
                            KEY `FK5ttjtanjlx35g8q7ut9pn601` (`order_id`),
                            KEY `FKba6y7uepbpwmounho6a0s376k` (`payment_mode_id`)
 ) ;
-
-
-
 
 DROP TABLE IF EXISTS `payment_mode`;
 CREATE TABLE `payment_mode` (
@@ -91,12 +70,10 @@ CREATE TABLE `payment_mode` (
                                 PRIMARY KEY (`id`)
 ) ;
 
-
-
-
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
                            `id` bigint NOT NULL AUTO_INCREMENT,
+                           `uuid` varchar(255),
                            `autor` varchar(255) DEFAULT NULL,
                            `date` datetime DEFAULT NULL,
                            `description` LONGTEXT DEFAULT NULL,
@@ -109,9 +86,6 @@ CREATE TABLE `product` (
                            KEY `FK1mtsbur82frn64de7balymq9s` (`category_id`)
 ) ;
 
-
-
-
 DROP TABLE IF EXISTS `product_order`;
 CREATE TABLE `product_order` (
                                  `quantity` bigint DEFAULT NULL,
@@ -121,9 +95,6 @@ CREATE TABLE `product_order` (
                                  KEY `FKh73acsd9s5wp6l0e55td6jr1m` (`product_id`)
 ) ;
 
-
-
-
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
                         `id` bigint NOT NULL AUTO_INCREMENT,
@@ -131,12 +102,10 @@ CREATE TABLE `role` (
                         PRIMARY KEY (`id`)
 ) ;
 
-
-
-
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
                         `id` bigint NOT NULL AUTO_INCREMENT,
+                        `uuid` varchar(255),
                         `adress_part_one` varchar(255) DEFAULT NULL,
                         `adress_part_two` varchar(255) DEFAULT NULL,
                         `city` varchar(255) DEFAULT NULL,
@@ -150,7 +119,6 @@ CREATE TABLE `user` (
                         KEY `FK2c5wgy4wrgccngxqbre0uy1ag` (`whish_list_id`)
 ) ;
 
-
 DROP TABLE IF EXISTS `user_adresses`;
 CREATE TABLE `user_adresses` (
                                  `user_id` bigint NOT NULL,
@@ -158,8 +126,6 @@ CREATE TABLE `user_adresses` (
                                  UNIQUE KEY `UK_f1k2idvvr3akl7lkq2wv3otwm` (`adresses_id`),
                                  KEY `FKh9r96dgv6vd3qjvc39x1hpk4u` (`user_id`)
 ) ;
-
-
 
 DROP TABLE IF EXISTS `user_payment_mode`;
 CREATE TABLE `user_payment_mode` (
@@ -169,8 +135,6 @@ CREATE TABLE `user_payment_mode` (
                                      KEY `FKaxsye2aaw82qljryth34m34l8` (`user_id`)
 ) ;
 
-
-
 DROP TABLE IF EXISTS `user_roles`;
 CREATE TABLE `user_roles` (
                               `user_id` bigint NOT NULL,
@@ -179,15 +143,12 @@ CREATE TABLE `user_roles` (
                               KEY `FK55itppkw3i07do3h7qoclqd4k` (`user_id`)
 ) ;
 
-
 DROP TABLE IF EXISTS `wish_list`;
 CREATE TABLE `wish_list` (
                              `id` bigint NOT NULL AUTO_INCREMENT,
                              `name` varchar(255) DEFAULT NULL,
                              PRIMARY KEY (`id`)
 ) ;
-
-
 
 DROP TABLE IF EXISTS `wish_list_product`;
 CREATE TABLE `wish_list_product` (
