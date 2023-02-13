@@ -1,11 +1,32 @@
+## Introduction
 
-1. Need Java 11
-2. git clone https://github.com/Mohamed4277/white-api-with-jwt-auth.git
-3. Need Mysql schema e-commerce
-4. Run app (Intellij)
-5. Test with Postman (see below)
+Ce repository contient la partie back de l'application e-commerce
 
-![image](https://user-images.githubusercontent.com/22227844/195851624-293ec442-190d-47c3-a2c7-f74b186052d8.png)
+## Outils necessaires
+
+- MySQL
+- Java 11
+- Framework Spring Boot
+
+## Base de données
+
+Créer le schema mai_db "maidb" sous MySQL
+
+## Lancer l'application
+
+- Pour une utilisation local lancer l'application sous IntelliJ
+- Pour une utilisation dans un evironnement homologation/production, créer le jar et lancer avec maven
+
+Ouvrir le swagger "http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config" pour utiliser l'API.
+
+## Lancer les tests
+
+ - En local, lancer les tests sous IntelliJ
+ - En homologation, lancer les tests en utilisant maven
+
+
+
+
 
 
 

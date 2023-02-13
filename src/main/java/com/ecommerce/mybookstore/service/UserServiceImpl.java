@@ -1,5 +1,7 @@
 package com.ecommerce.mybookstore.service;
 
+import com.ecommerce.mybookstore.entity.Adresses;
+import com.ecommerce.mybookstore.repository.AdressesRepository;
 import com.ecommerce.mybookstore.repository.RoleRepo;
 import com.ecommerce.mybookstore.entity.Role;
 import com.ecommerce.mybookstore.entity.User;
@@ -26,11 +28,30 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final RoleRepo roleRepo;
     private final PasswordEncoder passwordEncoder;
 
+    private final AdressesRepository adressesRepository;
+
 
     @Override
     public User saveUser(User user) {
         log.info("Saving new user {} to the database", user.getName());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        List<Adresses> listAdressOfUser= user.getAdresses();
+
+        if (listAdressOfUser == null || (listAdressOfUser != null && listAdressOfUser.size()==0)) {
+        Adresses adressToSave = new Adresses();
+
+        adressToSave.setNameAdress(user.getName());
+        adressToSave.setLastNameAdress(user.getLastName());
+        adressToSave.setAdressPartOne(user.getAdressPartOne());
+        adressToSave.setAdressPartTwo(user.getAdressPartTwo());
+        adressToSave.setCity(user.getCity());
+        adressToSave.setIsDeliveryAdress(true);
+        adressToSave.setIsInvoiceAdress(true);
+        adressToSave.setZip(user.getZip());
+
+        Adresses adressSaved= adressesRepository.save(adressToSave);
+
+        user.setAdresses(List.of(adressSaved)); }
 
         return userRepo.save(user);
     }
