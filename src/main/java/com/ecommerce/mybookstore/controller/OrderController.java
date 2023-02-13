@@ -5,6 +5,7 @@ import com.ecommerce.mybookstore.entity.User;
 import com.ecommerce.mybookstore.service.OrderService;
 import com.ecommerce.mybookstore.service.ProductOrderService;
 import com.ecommerce.mybookstore.service.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/order")
+@SecurityRequirement(name = "bearerAuth")
 public class OrderController {
 
     private final OrderService orderService;

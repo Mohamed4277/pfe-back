@@ -2,6 +2,7 @@ package com.ecommerce.mybookstore.controller;
 
 import com.ecommerce.mybookstore.entity.PaymentMode;
 import com.ecommerce.mybookstore.service.PaymentModeService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/payment-mode")
+@SecurityRequirement(name = "bearerAuth")
 public class PaymentModeController {
 
     private final PaymentModeService paymentModeService;

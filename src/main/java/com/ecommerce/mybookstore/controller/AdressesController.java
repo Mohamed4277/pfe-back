@@ -2,6 +2,7 @@ package com.ecommerce.mybookstore.controller;
 
 import com.ecommerce.mybookstore.entity.Adresses;
 import com.ecommerce.mybookstore.service.AdressesService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/adress")
+@SecurityRequirement(name = "bearerAuth")
 public class AdressesController {
 
     private final AdressesService adressesService;

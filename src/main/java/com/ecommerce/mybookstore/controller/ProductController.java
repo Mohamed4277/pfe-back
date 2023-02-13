@@ -4,6 +4,7 @@ import com.ecommerce.mybookstore.entity.Category;
 import com.ecommerce.mybookstore.entity.Product;
 import com.ecommerce.mybookstore.service.CategoryService;
 import com.ecommerce.mybookstore.service.ProductService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/product")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class ProductController {
 
     private final ProductService productService;

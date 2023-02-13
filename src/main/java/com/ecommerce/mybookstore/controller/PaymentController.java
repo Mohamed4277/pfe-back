@@ -2,6 +2,7 @@ package com.ecommerce.mybookstore.controller;
 
 import com.ecommerce.mybookstore.entity.Payment;
 import com.ecommerce.mybookstore.service.PaymentService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Optional;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/payment")
+@SecurityRequirement(name = "bearerAuth")
 public class PaymentController {
 
     private final PaymentService paymentService;
