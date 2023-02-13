@@ -37,6 +37,6 @@ jobs:
           USER: ${{ secrets.USER }}
         run: docker login -u $USER -p $PASSWORD
       - name: Build the Docker image
-        run: docker build -t 77871417/spring-pfe .
+        run: docker build -t mai77/spring-pfe .
       - name: Push the Docker image
-        run: docker push 77871417/spring-pfe:latest
+        run: docker push mai77/spring-pfe:latest
