@@ -32,9 +32,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 
     @Override
-    public User saveUser(User user) {
+    public User saveUser(User user,Boolean userNew) {
         log.info("Saving new user {} to the database", user.getName());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        if (userNew == true){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));}
+
         List<Adresses> listAdressOfUser= user.getAdresses();
 
         if (listAdressOfUser == null || (listAdressOfUser != null && listAdressOfUser.size()==0)) {

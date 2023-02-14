@@ -22,6 +22,11 @@ public class AdressesServiceImpl implements AdressesService {
     }
 
     @Override
+    public List<Adresses> findAllByOrderByIdDesc() {
+        return adressesRepository.findAllByOrderByIdDesc();
+    }
+
+    @Override
     public Optional<Adresses> findById(Long id) {
         return adressesRepository.findById(id);
     }

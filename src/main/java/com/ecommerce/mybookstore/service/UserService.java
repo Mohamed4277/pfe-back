@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
-    User saveUser(User user);
+    User saveUser(User user, Boolean newUser);
     Role saveRole(Role role);
     void addRoleToUser(String username, String roleName);
     User getUser(String username);

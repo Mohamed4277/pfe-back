@@ -23,8 +23,8 @@ public class AdressesController {
     }
 
     @GetMapping()
-    public List<Adresses> findAllAdresses(){
-        return adressesService.findAllAdresses();
+    public List<Adresses> findAllByOrderByIdDesc(){
+        return adressesService.findAllByOrderByIdDesc();
     }
 
     @GetMapping("/{id}")

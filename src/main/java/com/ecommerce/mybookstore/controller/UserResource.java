@@ -69,7 +69,7 @@ public class UserResource {
     @PostMapping("/register")
     public ResponseEntity<User> saveUserRegister(@RequestBody User user){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/register").toUriString());
-        User userSaved =userService.saveUser(user);
+        User userSaved =userService.saveUser(user, true);
         userService.addRoleToUser(userSaved.getUsername(),"ROLE_USER");
         return ResponseEntity.created(uri).body(userSaved);
     }
@@ -77,7 +77,7 @@ public class UserResource {
     @PostMapping("/user/save")
     public ResponseEntity<User> saveUser(@RequestBody User user){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
-        return ResponseEntity.created(uri).body(userService.saveUser(user));
+        return ResponseEntity.created(uri).body(userService.saveUser(user,true));
     }
 
     @PostMapping("/user/{userName}/adress")
@@ -85,7 +85,7 @@ public class UserResource {
         Adresses adressSaved=adressesService.saveAdresses(adress);
         User user=userService.getUser(userName);
         user.getAdresses().add(adress);
-        userService.saveUser(user);
+        userService.saveUser(user,false);
         return ResponseEntity.ok().body(adressSaved);}
 
     @PutMapping("/user/{userName}/adress/{adressId}")
@@ -109,7 +109,7 @@ public class UserResource {
             WishList wishListSaved=wishListService.saveWishList(new WishList("My wish list",Arrays.asList(product)));
             user.setWhishList(wishListSaved);
         }
-        userService.saveUser(user);
+        userService.saveUser(user,false);
         return ResponseEntity.ok().body(user.getWhishList());}
 
     @DeleteMapping("/user/{userName}/wish-list")
@@ -121,7 +121,7 @@ public class UserResource {
             user.getWhishList().getProduct().remove(product);
             user.setWhishList(null);
         }
-        userService.saveUser(user);
+        userService.saveUser(user,false);
         return ResponseEntity.ok().body(user.getWhishList());}
 
     @PostMapping("/user/{userName}/payment-mode")
@@ -130,7 +130,7 @@ public class UserResource {
         PaymentMode paymentModeSaved=paymentModeService.savePaymentMode(paymentMode);
         User user=userService.getUser(userName);
         user.getPaymentMode().add(paymentMode);
-        userService.saveUser(user);
+        userService.saveUser(user,false);
         return ResponseEntity.ok().body(paymentMode);}
 
     @PutMapping("/user/{userName}/payment-mode/{paymentModeId}")
